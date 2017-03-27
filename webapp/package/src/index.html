@@ -14,7 +14,13 @@
         <header class="header">
             <div class="wrapper">
                 <div class="brand">
-                    <a href="index.html" class="brand"><img src="./images/placeholder-logo.png" alt="Logo" /></a>
+                    <a href="index.html">
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.73 69.61">
+                                <defs><style>.cls-1{fill:#e5e5e5;}</style></defs><title>logo</title>
+                                <path class="cls-1" d="M10.62,67.54a26.84,26.84,0,0,1-5.77-9.26,27.71,27.71,0,0,1-1.7-10.34A27.37,27.37,0,0,1,5.38,37.67a27,27,0,0,1,6.26-9l3.82-3.61L25,35.24l-3.82,3.61c-2.55,2.41-3.47,5.66-3.59,9.17a12.55,12.55,0,0,0,3.6,9.13,13.33,13.33,0,0,0,9.16,4.35c3.47,0.09,6.79-.64,9.34-3l26.8-25.31,9.58,10.14L49.31,68.58a26.75,26.75,0,0,1-9.25,5.82,27.53,27.53,0,0,1-20.53-.58A26.78,26.78,0,0,1,10.62,67.54Z" transform="translate(-3.13 -25.1)"/>
+                                <path class="cls-1" d="M51,70.83L70.82,52.09A26.8,26.8,0,0,1,80,46.24a27.13,27.13,0,0,1,20.51.5,27.45,27.45,0,0,1,14.67,15.53,27.72,27.72,0,0,1,1.7,10.34,27,27,0,0,1-2.51,10,26.49,26.49,0,0,1-6.5,8.69l-3.61,3.41L94.66,84.57l3.61-3.41a12.21,12.21,0,0,0,3.85-8.89,13.86,13.86,0,0,0-.89-4.84,12.56,12.56,0,0,0-6.67-7.06,14.83,14.83,0,0,0-5-1.33,12.37,12.37,0,0,0-9.18,3.2L60.57,81Z" transform="translate(-3.13 -25.1)"/>
+                            </svg>
+                    </a>
                 </div>
                 <nav class="nav">
                     <p class="nav__menu">
@@ -25,8 +31,8 @@
                     </p>
                     <ul>
                         <li class="nav__item"><a href="home.html">Home</a></li>
-                        <li class="nav__item"><a href="about us.html">About</a></li>
-                        <li class="nav__item"><a href="services.html">Services</a></li>
+                        <li class="nav__item"><a href="works.html">Projects</a></li>
+                        <li class="nav__item"><a href="about.html">About</a></li>
                         <li class="nav__item nav__item--contact"><a href="Contact.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -74,8 +80,8 @@
                 <!-- <a class="footer__info__contact" href="mailto:hello@jonathanramos.net">hello@jonathanramos.net</a> -->
                 <ul class="footer__sitemap">
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#works">Works</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <p class="footer__contact">
@@ -87,29 +93,21 @@
     </div>
 
     <script src="../js/script.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script>
-        $(document).ready(function() {
-            /************************************************************
-            RESPONSIVE NAVIGATION
-            ************************************************************/
-            // STEP 1. CHECK FOR CLICK EVENTS ON THE MENU AND TOGGLE THE NEXT ELEMENT.
-            $('.nav__menu').click(function(e) {
-                $(this).toggleClass('active');
-                $(this).next().stop().slideToggle('fast');
-            });
-            // STEP 2. RESET THE NAV UL DISPLAY PROPERTY WHENEVER THE NAV__MENU IS HIDDEN FROM VIEW.
-            function checkSize() {
-                if ($('.nav__menu').css('display') == 'none') {
-                    $('.nav ul').removeAttr('style');
-                    $('.nav__menu').removeClass('active');
-                }
+        const navMenu = document.querySelector('.nav__menu');
+        const navItems = document.querySelector('.nav ul');
+
+        function checkSize() {
+            if(window.getComputedStyle(navMenu, null).getPropertyValue('display') == 'none' ) {
+                navMenu.classList.remove('active');
+                navItems.classList.remove('active');
             }
-            $(window).resize(checkSize);
-        });
-        /************************************************************
-           SLIDER
-        ************************************************************/
+        }
+        navMenu.addEventListener('click', function(e) {
+            this.classList.toggle('active');
+            navItems.classList.toggle('active');
+        })
+        window.addEventListener('resize', checkSize);
     </script>
 </body>
 

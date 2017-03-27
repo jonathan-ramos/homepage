@@ -6,6 +6,9 @@ HEADER
 	padding: 34px 0;
 	position: relative;	/** position can be absolute if elements under it needs to flow up, ie a slideshow banner image**/
 	display:block;
+	@media screen and (max-width: $media-mobile) {
+		padding: 18px 0;
+	}
 }
 .header:after {
 	content: '';
@@ -16,9 +19,24 @@ HEADER
 	float: left;
 	display: block;
 	max-width: 120px;
-	width: 62px;
-	height: 62px;
+	width: 60px;
+	height: 60px;
 	border: 1px solid #eaeaea;
+	position:relative;
+	background: black;
+	border-radius:4px;
+	@media screen and (max-width: $media-mobile) {
+		width: 50px;
+		height: 45px;
+	}
+	a {
+		display: block;
+		padding: 5px;
+		position:absolute;
+		width:100%;
+		top:55%;
+		transform: translateY(-50%);
+	}
 }
 .nav {
 	display:block;
@@ -26,7 +44,7 @@ HEADER
 	line-height: 1;
 	font-size: 2rem;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: $media-mobile) {
 	.brand {
 		float: none;
 	}
@@ -46,12 +64,12 @@ HEADER
 	cursor: pointer;
 	width: 50px;
 	height: 40px;
-}
-@media screen and (max-width: 1024px) {
-	.nav__menu {
+	@media screen and (max-width: $media-mobile) {
 		display: block;
+		top: 30px;
 	}
 }
+
 .nav__menu span {
 	display: block;
 	width: 30px;
@@ -73,96 +91,94 @@ HEADER
 	}
 }
 
-.nav__menu.active span {
-	&:nth-child(1),&:nth-child(4) {
-		top: 10px;
-		width: 0;
-		left: 50%;
-		opacity: 0;
-
-	}
-	&:nth-child(2) {
-		 transform: rotate(45deg);
-	}
-	&:nth-child(3) {
-		 transform: rotate(-45deg);
+.nav__menu.active {
+	span {
+		&:nth-child(1),&:nth-child(4) {
+			top: 10px;
+			width: 0;
+			left: 50%;
+			opacity: 0;
+		}
+		&:nth-child(2) {
+			 transform: rotate(45deg);
+		}
+		&:nth-child(3) {
+			 transform: rotate(-45deg);
+		}
 	}
 }
 
-/* .nav__menu.active span:nth-child(1){
-	transform: rotate(45deg);
-}
-.nav__menu.active span:nth-child(2){
-	width: 0%;
-	opacity: 0;
-}
-.nav__menu.active span:nth-child(3){
-	transform: rotate(-45deg);
-} */
 .nav ul {
 	display: block;
 	padding: 0;
 	margin: 0;
-}
-.nav ul:after{
-	content: '';
-	display: table;
-	clear: both;
-}
-.nav__item {
-	float: left;
-}
-@media screen and (max-width: 1024px) {
-	.nav ul {
-		display: none;
-		padding-top: 15px;
+	transition: all .2s ease-out;
+	@media screen and (max-width: $media-mobile) {
+		max-height: 0;
+		opacity: 0;
+		overflow: hidden;
+		&.active {
+			padding-top: 20px;
+			max-height: 500px;
+			opacity: 1;
+		}
+	}
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
 	}
 	.nav__item {
-		float: none;
-	}
-}
-.nav__item a{
-	padding: 20px 0 20px;
-	display: block;
-	float: left;
-	position: relative;
-	margin-right: 70px;
-	color: #303C42;
-}
-.nav__item a:after{
-	content: "";
-	display: block;
-	position: absolute;
-	left: 0;
-	bottom: 10px;
-	width: 0;
-	height: 3px;
-	background-color: #1c66e6;
-	transition: width 0.2s;
-}
-.nav__item a:hover:after{
-	width: 100%;
-}
-.nav__item--contact a{
-	background-color: #4A85EB;
-	color: #fff;
-	padding: 20px 34px 20px;
-	margin-right: 0;
-	transition: all 0.2s ease;
-}
-.nav__item--contact a:hover{
-	background-color: #1c66e6;
-}
-@media screen and (max-width: 1024px) {
-	.nav__item a {
-		float: none;
-		margin-right: 0;
-		text-align: center;
-	}
-	.nav__item a:hover:after{
-		width: 0;
-	}
-	.nav__item--contact a {
-		margin-top: 15px;
+		float: left;
+		@media screen and (max-width: $media-mobile) {
+			float: none;
+		}
+		a {
+			padding: 20px 0 20px;
+			display: block;
+			float: left;
+			position: relative;
+			margin-right: 70px;
+			color: #303C42;
+			@media screen and (max-width: $media-mobile) {
+				float: none;
+				margin-right: 0;
+				text-align: center;
+			}
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 0;
+				bottom: 10px;
+				width: 0;
+				height: 3px;
+				background-color: #1c66e6;
+				transition: width 0.2s;
+			}
+			&:hover:after {
+				width: 100%;
+				@media screen and (max-width: $media-mobile) {
+					width: 0;
+				}
+			}
+		}
+		&--contact a {
+			background-color: $highlight;
+			color: #fff;
+			padding: 20px 34px 20px;
+			margin-right: 0;
+			transition: background 0.2s ease;
+			@media screen and (max-width: $media-mobile) {
+				margin-top: 15px;
+			}
+			&:hover {
+				background-color: darken($highlight, 8%);
+			}
+			&:hover:after {
+				display: none;
+
+			}
+		}
 	}
 }
