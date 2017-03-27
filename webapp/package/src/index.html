@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello!I'm Jon</title>
+    <meta name="description" content="Enter site description here" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+</head>
+
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="wrapper">
+                <div class="brand">
+                    <a href="index.html" class="brand"><img src="./images/placeholder-logo.png" alt="Logo" /></a>
+                </div>
+                <nav class="nav">
+                    <p class="nav__menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </p>
+                    <ul>
+                        <li class="nav__item"><a href="home.html">Home</a></li>
+                        <li class="nav__item"><a href="about us.html">About</a></li>
+                        <li class="nav__item"><a href="services.html">Services</a></li>
+                        <li class="nav__item nav__item--contact"><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <section>
+            <div class="wrapper">
+                <h1>Section</h1>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eius expedita libero, voluptatum saepe.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto praesentium tempore, iste nemo a, non perferendis molestiae, architecto distinctio eligendi qui nulla fugiat, alias excepturi deserunt iure. Dolorem, quas!</p>
+            </div>
+        </section>
+
+
+        <!--    <div class="internal">
+	   <div class="wrapper">
+		  <ul class="page">
+			<li class="page_item"><a href="#">About</a></li>
+			<li class="page_item"><a href="#">How scheme works</a></li>
+			<li class="page_item"><a href="#">Case studies</a></li>
+			<li class="page_item"><a href="#">Why offer payroll giving</a></li>
+			<li class="page_item"><a href="#">Flexbens Offer</a></li>
+			<li class="page_item"><a href="#">Enquire</a></li>
+		  </ul>
+		</div>
+		<section class="internal__info">
+		<div class="wrapper">
+			<h1>Employer Info</h1>
+			<div class="text-content">
+			<p>Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit, elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien</p>
+			<p>Fusce vehicula dolor arcu, sit amet blandit dolor mollis nec. Donec viverra eleifend lacus, vitae ullamcorper metus. Sed sollicitudin ipsum quis nunc sollicitudin ultrices. Donec euismod scelerisque ligula. <a href="#">Maecenas eu varius</a> risus, eu aliquet arcu. Curabitur fermentum suscipit est, tincidunt mattis lorem luctus id. Donec eget massa a diam condimentum pretium. Aliquam erat volutpat. Integer ut tincidunt orci. Etiam tristique, elit ut consectetur iaculis, metus lectus mattis justo, vel mollis eros neque quis augue. Sed lobortis ultrices lacus, a placerat metus rutrum sit amet. Aenean ut suscipit justo.</p>
+			<p>Nam dapibus nisl vitae elit fringilla rutrum. Aenean sollicitudin, erat a elementum rutrum, neque sem pretium metus, quis mollis nisl nunc et massa. Vestibulum sed metus in lorem tristique ullamcorper id vitae erat. Nulla mollis sapien sollicitudin lacinia lacinia. Vivamus facilisis dolor et massa placerat, at vestibulum nisl egestas. Nullam rhoncus lacus non odio luctus, eu condimentum mauris ultrices. Praesent blandit, augue a posuere aliquam, arcu tortor feugiat turpis, quis lacinia augue sapien at tellus. Cras ut erat magna. Morbi nibh ante, condimentum vestibulum tempus a, tristique et velit. Sed semper aliquet ante. Quisque tempus arcu sapien, id convallis turpis dictum quis. Nunc commodo vitae risus sit amet sollicitudin. Sed id facilisis sem.</p>
+			<p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget elit facilisis tristique. Nam vel iaculis mauris. Sed ullamcorper tellus erat, non ultrices sem tincidunt euismod. Fusce rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce lorem leo, vehicula at nibh quis, facilisis accumsan turpis.</p>
+			</div>
+		</div>
+		</section>
+    </div> -->
+
+
+        <footer class="footer">
+            <div class="wrapper">
+                <p class="footer__info">
+                    <span class="fotter__info__brand"><strong>Jonathan Ramos</strong></span><span class="footer__info__desc">Website design and development</span>
+
+                <!-- <a class="footer__info__contact" href="mailto:hello@jonathanramos.net">hello@jonathanramos.net</a> -->
+                <ul class="footer__sitemap">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#works">Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <p class="footer__contact">
+                    <a href="mailto:hello@jonathanramos.net">hello@jonathanramos.net</a></p>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            /************************************************************
+            RESPONSIVE NAVIGATION
+            ************************************************************/
+            // STEP 1. CHECK FOR CLICK EVENTS ON THE MENU AND TOGGLE THE NEXT ELEMENT.
+            $('.nav__menu').click(function(e) {
+                $(this).toggleClass('active');
+                $(this).next().stop().slideToggle('fast');
+            });
+            // STEP 2. RESET THE NAV UL DISPLAY PROPERTY WHENEVER THE NAV__MENU IS HIDDEN FROM VIEW.
+            function checkSize() {
+                if ($('.nav__menu').css('display') == 'none') {
+                    $('.nav ul').removeAttr('style');
+                    $('.nav__menu').removeClass('active');
+                }
+            }
+            $(window).resize(checkSize);
+        });
+        /************************************************************
+           SLIDER
+        ************************************************************/
+    </script>
+</body>
+
+</html>

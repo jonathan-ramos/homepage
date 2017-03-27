@@ -1,0 +1,117 @@
+.footer {
+	font-size: 1.5rem;
+	padding: 40px 0;
+    a {
+    	position: relative;
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background-color: $highlight;
+            transition: width 0.2s;
+        }
+        &:hover:after{
+            width: 100%;
+        }
+    }
+    p {
+        @media screen and (max-width:500px) {
+            max-width: 100%;
+        }
+    }
+
+    &__info {
+    	float: left;
+    	padding: 0;
+    	margin: 0;
+        @media screen and (max-width: $media-mobile) {
+            display: block;
+			float: none;
+        }
+        &__desc {
+			@media screen and (max-width: $media-mobile) {
+				display: block;
+			}
+			&:before {
+	            content: "|";
+	            margin:0 5px;
+	            display: inline-block;
+				@media screen and (max-width: $media-mobile) {
+					display: none;
+				}
+			}
+		}
+
+        &__contact {
+            float: right;
+            font-weight: bold;
+        }
+    }
+
+    &__sitemap {
+        float: right;
+        @media screen and (max-width: $media-mobile) {
+            float: none;
+            clear: both;
+			margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        li {
+
+            display: inline-block;
+            @media screen and (max-width: $media-mobile) {
+                display: block;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+            &:before {
+                content: "|";
+                margin-left: 10px;
+                margin-right: 14px;
+                @media screen and (max-width: $media-mobile) {
+                    display: none;
+                }
+            }
+            &:first-child:before {
+                display: none;
+            }
+            a {
+                font-weight: bold;
+                padding: 0;
+                margin: 0;
+                @media screen and (max-width: $media-mobile) {
+                    display: block;
+                    padding: 14px 0 10px;
+                    border-bottom: 1px solid rgba(0,0,0,0.2);
+                }
+            }
+        }
+    }
+
+    &__contact{
+        display: block;
+        clear: both;
+    }
+
+    // @media screen and (max-width: 800px) {
+    // 	&__info {
+    // 		display: block;
+    // 		float: none;
+    // 	}
+    // 	&__info__dev {
+    // 		display: block;
+    // 		margin-bottom: 20px;
+    // 	}
+    //
+    // 	&__info__contact {
+    // 		display: block;
+    // 		float: none;
+    // 	}
+    // }
+
+}

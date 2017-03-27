@@ -1,0 +1,57 @@
+html {
+	font-size: 62.5%;
+}
+body {
+	background: #ECF0F4;
+	font-size: 2rem;
+	color: #63717D;
+	overflow-y: hidden;
+
+}
+section {
+	background: #F9F9F9;
+	padding: 80px 0;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+img {
+	max-width: 100%;
+}
+li {
+	list-style: none;
+}
+div, section, header, footer, span, p, a, img, h1, h2, h3, h4, h5, h6 {
+	box-sizing: border-box;
+}
+
+/*******************************************************************************
+PAGE CONTAINERS
+*******************************************************************************/
+.page{
+	max-width:$page-width;
+	background-color: $white;
+	margin: 0 auto;
+	min-height: 100vh;
+}
+.wrapper {
+	max-width: $wrapper-width;
+	margin: 0 auto;
+	padding-top: 0;
+	padding-bottom: 0;
+	@include clearfix;
+	@media screen and (max-width : 1280px) {
+		padding : 0 20px;
+	}
+
+}
+
+
+.lead {
+	font-size: 110%;
+	color: #303C42;
+}
+p {
+	max-width: 70%;
+}
