@@ -5,8 +5,6 @@ body {
 	background: #ECF0F4;
 	font-size: 2rem;
 	color: #63717D;
-	overflow-y: hidden;
-
 }
 section {
 	background: #F9F9F9;
@@ -26,6 +24,12 @@ div, section, header, footer, span, p, a, img, h1, h2, h3, h4, h5, h6 {
 	box-sizing: border-box;
 }
 
+h1, h2 {
+	font-weight: bold;
+}
+h2 {
+	font-size: 4.0rem;
+}
 /*******************************************************************************
 PAGE CONTAINERS
 *******************************************************************************/
@@ -33,13 +37,12 @@ PAGE CONTAINERS
 	max-width:$page-width;
 	background-color: $white;
 	margin: 0 auto;
-	min-height: 100vh;
 }
 .wrapper {
 	max-width: $wrapper-width;
 	margin: 0 auto;
-	padding-top: 0;
-	padding-bottom: 0;
+	padding: 0 50px;
+	// transition: padding 0.2s ease;
 	@include clearfix;
 	@media screen and (max-width : 1280px) {
 		padding : 0 20px;
@@ -52,6 +55,115 @@ PAGE CONTAINERS
 	font-size: 110%;
 	color: #303C42;
 }
-p {
-	max-width: 70%;
+
+.banner {
+	padding: 0;
+	position: relative;
+	min-height: 100vh;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url(../images/background.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top center;
+	&__intro {
+		padding: 20vh 0 22vh;
+		position: relative;
+		max-width: 700px;
+		h1 {
+			font-size: 7.8rem;
+			line-height:1;
+			margin-bottom: 20px;
+			color: white;
+			text-shadow: 8px 8px 0px rgba(0,0,0,0.4);
+		}
+		p {
+			font-size: 3rem;
+			color: rgba(255,255,255,1);
+			text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+		}
+	}
+	&__cta {
+		border-top: 1px solid rgba(255,255,255,0.15);
+		padding: 35px 0;
+		position: relative;
+		h2 {
+			color: white;
+			text-shadow: 5px 5px 0px rgba(0,0,0,0.4);
+		}
+	}
+}
+
+
+.cta {
+	padding: 0;
+	font-size: 2.5rem;
+	&__link {
+		display: block;
+		padding: 30px 0;
+		// border-top: 1px solid rgba(0,0,0,0.15);
+		transition: all 0.2s ease;
+		color: $black;
+		color: $white;
+		font-weight: bold;
+		&:nth-child(1){
+			background: lighten($highlight, 8%);
+		}
+		&:nth-child(2){
+			background: $highlight;
+		}
+		&:nth-child(3) {
+			background: darken($highlight,5%);
+		}
+		&:hover {
+			background: darken($highlight, 15%);
+		}
+		span:before {
+			content: '';
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			display: inline-block;
+			background: url(../images/ico-caret.svg) no-repeat white;
+			background-size: 70%;
+			background-position: center center;
+			margin-right: 14px;
+			transform: translateY(3px);
+			opacity:0.8;
+			box-shadow:5px 3px 0 rgba(0,0,0,0.3);
+		}
+		// span {
+		// 	&:before {
+		// 		content: ">";
+		// 		display: inline-block;
+		// 		padding-right: 10px;
+		// 	}
+		// }
+	}
+}
+
+.about {
+	&__title {
+		lost-column: 1/3;
+		margin-bottom: 20px;
+		@media screen and (max-width: $media-mobile) {
+			lost-column: 1/1;
+		}
+	}
+	&__content {
+		lost-column: 2/3;
+		@media screen and (max-width: $media-mobile) {
+			lost-column: 1/1;
+		}
+		p {
+			margin-bottom: 20px;
+			max-width: 100%;
+		}
+		a {
+
+		}
+		.highlight {
+			color: #303C42;
+			font-weight: bold;
+		}
+	}
+
 }

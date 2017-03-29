@@ -5,7 +5,7 @@
 
 @lost gutter 44px;
 
-$page-width: 1600px;
+$page-width: 1680px;
 $wrapper-width: 1280px;
 $media-desktop: 1280px;
 $media-tablet: 1024px;
@@ -25,5 +25,11 @@ $alt-font-family : Optima, 'URWClassico-Regular', Helvetica, arial, sans-serif;
 
 
 @mixin clearfix {
-
+    &:before, &:after {
+        display: table;
+        content: ""
+    }
+    &:after {
+        clear: both;
+    }
 }

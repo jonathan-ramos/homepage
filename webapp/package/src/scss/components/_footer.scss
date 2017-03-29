@@ -28,11 +28,12 @@
     	float: left;
     	padding: 0;
     	margin: 0;
+		font-weight: bold;
         @media screen and (max-width: $media-mobile) {
             display: block;
 			float: none;
         }
-        &__desc {
+        &__contact {
 			@media screen and (max-width: $media-mobile) {
 				display: block;
 			}
@@ -45,13 +46,11 @@
 				}
 			}
 		}
-
-        &__contact {
-            float: right;
-            font-weight: bold;
-        }
     }
-
+	&__desc{
+		display:block;
+		clear: both;
+	}
     &__sitemap {
         float: right;
         @media screen and (max-width: $media-mobile) {

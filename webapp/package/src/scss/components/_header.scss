@@ -6,24 +6,19 @@ HEADER
 	padding: 34px 0;
 	position: relative;	/** position can be absolute if elements under it needs to flow up, ie a slideshow banner image**/
 	display:block;
+	@include clearfix;
 	@media screen and (max-width: $media-mobile) {
 		padding: 18px 0;
 	}
 }
-.header:after {
-	content: '';
-	display: table;
-	clear: both;
-}
+
 .brand {
 	float: left;
 	display: block;
 	max-width: 120px;
 	width: 60px;
 	height: 60px;
-	border: 1px solid #eaeaea;
 	position:relative;
-	background: black;
 	border-radius:4px;
 	@media screen and (max-width: $media-mobile) {
 		width: 50px;
@@ -130,6 +125,7 @@ HEADER
 	}
 	.nav__item {
 		float: left;
+		color: $white;
 		@media screen and (max-width: $media-mobile) {
 			float: none;
 		}
@@ -139,7 +135,6 @@ HEADER
 			float: left;
 			position: relative;
 			margin-right: 70px;
-			color: #303C42;
 			@media screen and (max-width: $media-mobile) {
 				float: none;
 				margin-right: 0;
@@ -153,7 +148,7 @@ HEADER
 				bottom: 10px;
 				width: 0;
 				height: 3px;
-				background-color: #1c66e6;
+				background-color: $highlight-2;
 				transition: width 0.2s;
 			}
 			&:hover:after {
@@ -173,7 +168,7 @@ HEADER
 				margin-top: 15px;
 			}
 			&:hover {
-				background-color: darken($highlight, 8%);
+				background-color: $highlight-2;
 			}
 			&:hover:after {
 				display: none;

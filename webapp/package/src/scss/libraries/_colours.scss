@@ -1,5 +1,7 @@
 /* Colors */
-$highlight: #4A85EB;
+$highlight: #6E48AA;
+$highlight: #303c42;
+$highlight-2:darken($highlight, 10%);
 $blue-light: #4D6273;
 $blue-medium: #354C5E;
 $blue-dark: #313E47;
@@ -11,7 +13,7 @@ $white: #FFF;
 $white-2: rgba(255,255,255,0.2);
 $white-3: rgba(255,255,255,0.1);
 $white-4: rgba(255,255,255,0.7);
-$black: rgba(0,0,0,1);
+$black: #303C42;
 $black-2: rgba(0,0,0,0.15);
 
 // Social Colors 1
