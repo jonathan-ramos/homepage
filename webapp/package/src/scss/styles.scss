@@ -14,14 +14,6 @@ $media-mobile: 680px;
 $main-font-family :  "Gotham A", "Gotham B", sans-serif;
 $alt-font-family : Optima, 'URWClassico-Regular', Helvetica, arial, sans-serif;
 
-@import 'libraries/_reset';
-@import 'libraries/_colours';
-@import 'libraries/_mixins';
-@import 'components/_typography';
-@import 'components/_page';
-@import 'components/_header';
-@import 'components/_footer';
-@import 'components/_home';
 
 
 @mixin clearfix {
@@ -33,3 +25,26 @@ $alt-font-family : Optima, 'URWClassico-Regular', Helvetica, arial, sans-serif;
         clear: both;
     }
 }
+@mixin btn($color,$bg,$bghover)  {
+    lost-column: 1/2;
+    background-color:$bg;
+    border: none;
+    color: $color;
+    margin: 0;
+    padding: 24px 33px;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: all .3s ease;
+    text-align:center;
+    &:hover {
+        background-color: $bghover;
+    }
+}
+@import 'libraries/_reset';
+@import 'libraries/_colours';
+@import 'libraries/_mixins';
+@import 'components/_typography';
+@import 'components/_page';
+@import 'components/_header';
+@import 'components/_footer';
+@import 'components/_home';
