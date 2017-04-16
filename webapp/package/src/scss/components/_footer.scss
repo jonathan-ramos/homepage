@@ -29,6 +29,7 @@
     	padding: 0;
     	margin: 0;
 		font-weight: bold;
+		color: $black;
         @media screen and (max-width: $media-mobile) {
             display: block;
 			float: none;
@@ -53,6 +54,7 @@
 	}
     &__sitemap {
         float: right;
+		color: $black;
         @media screen and (max-width: $media-mobile) {
             float: none;
             clear: both;

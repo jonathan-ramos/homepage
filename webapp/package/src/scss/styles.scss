@@ -5,12 +5,11 @@
 
 @lost gutter 44px;
 
-$page-width: 1680px;
+$page-width: 1920px;
 $wrapper-width: 1280px;
 $media-desktop: 1280px;
 $media-tablet: 1024px;
 $media-mobile: 680px;
-
 $main-font-family :  "Gotham A", "Gotham B", sans-serif;
 $alt-font-family : Optima, 'URWClassico-Regular', Helvetica, arial, sans-serif;
 
@@ -25,8 +24,27 @@ $alt-font-family : Optima, 'URWClassico-Regular', Helvetica, arial, sans-serif;
         clear: both;
     }
 }
-@mixin btn($color,$bg,$bghover)  {
+
+@mixin link-effect($color:$highlight,$bottom:-5px) {
+    position: relative;
+    &:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $color;
+        bottom: $bottom;
+        left: 0;
+        position: absolute;
+        transition: width 0.2s ease;
+    }
+    &:hover:after {
+        width:100%;
+    }
+}
+@mixin btn($color,$bg,$bghover,$move:0)  {
     lost-column: 1/2;
+    lost-move:$move;
     background-color:$bg;
     border: none;
     color: $color;
@@ -36,6 +54,10 @@ $alt-font-family : Optima, 'URWClassico-Regular', Helvetica, arial, sans-serif;
     cursor: pointer;
     transition: all .3s ease;
     text-align:center;
+    @media screen and (max-width:$media-mobile) {
+        lost-column: 1/1;
+        lost-move: 0;
+    }
     &:hover {
         background-color: $bghover;
     }
