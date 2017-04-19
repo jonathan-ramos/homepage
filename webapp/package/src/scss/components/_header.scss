@@ -159,16 +159,17 @@ HEADER
 			}
 		}
 		&--contact a {
-			background-color: $highlight;
+			background-color: lighten($highlight,5%);
 			color: #fff;
 			padding: 20px 34px 20px;
 			margin-right: 0;
-			transition: background 0.2s ease;
+			transition: all 0.2s ease;
 			@media screen and (max-width: $media-mobile) {
 				margin-top: 15px;
 			}
 			&:hover {
-				background-color: $highlight-2;
+				background-color: $white;
+				color: $highlight;
 			}
 			&:hover:after {
 				display: none;

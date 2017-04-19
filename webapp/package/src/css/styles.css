@@ -572,7 +572,7 @@ PAGE CONTAINERS
       .projects__list__item a:hover {
         background: rgba(0, 0, 0, 0.04); }
         .projects__list__item a:hover img {
-          filter: saturate(0.8);
+          filter: saturate(1);
           transform: translate(-50%, -50%) scale(1.125);
           opacity: 1; }
       .projects__list__item a:after {
@@ -971,16 +971,17 @@ HEADER
           .nav ul .nav__item a:hover:after {
             width: 0; } }
     .nav ul .nav__item--contact a {
-      background-color: #303c42;
+      background-color: #3b4951;
       color: #fff;
       padding: 20px 34px 20px;
       margin-right: 0;
-      transition: background 0.2s ease; }
+      transition: all 0.2s ease; }
       @media screen and (max-width: 680px) {
         .nav ul .nav__item--contact a {
           margin-top: 15px; } }
       .nav ul .nav__item--contact a:hover {
-        background-color: #1b2124; }
+        background-color: #FFF;
+        color: #303c42; }
       .nav ul .nav__item--contact a:hover:after {
         display: none; }
 

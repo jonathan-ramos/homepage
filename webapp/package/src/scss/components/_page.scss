@@ -270,7 +270,7 @@ PAGE CONTAINERS
 				&:hover {
 					background: rgba(0,0,0,0.04);
 					img {
-						filter: saturate(0.8);
+						filter: saturate(1);
 						transform: translate(-50%, -50%) scale(1.125);
 						opacity: 1;
 					}
