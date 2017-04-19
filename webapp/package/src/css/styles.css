@@ -547,13 +547,16 @@ PAGE CONTAINERS
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%); }
+        transform: translate(-50%, -50%);
+        max-width: 220px; }
         .projects__list__item__image img.tpgt {
           background: #303c42;
           padding: 5px; }
         .projects__list__item__image img.codepen, .projects__list__item__image img.github {
           max-width: 130px;
           opacity: 0.8; }
+        .projects__list__item__image img.ft4 {
+          max-width: 120px; }
     .projects__list__item span {
       display: block;
       text-align: center;
@@ -561,14 +564,17 @@ PAGE CONTAINERS
       font-size: 1.6rem; }
     .projects__list__item a {
       display: block;
-      position: relative; }
+      position: relative;
+      transition: all 0.2s ease; }
       .projects__list__item a img {
         filter: saturate(0);
         transition: all 0.2s ease; }
-      .projects__list__item a:hover img {
-        filter: saturate(0.8);
-        transform: translate(-50%, -50%) scale(1.125);
-        opacity: 1; }
+      .projects__list__item a:hover {
+        background: rgba(0, 0, 0, 0.04); }
+        .projects__list__item a:hover img {
+          filter: saturate(0.8);
+          transform: translate(-50%, -50%) scale(1.125);
+          opacity: 1; }
       .projects__list__item a:after {
         display: none; }
       .projects__list__item a:before {

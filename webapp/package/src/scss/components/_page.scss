@@ -238,6 +238,7 @@ PAGE CONTAINERS
 					top: 50%;
 					left: 50%;
 					transform: translate(-50%, -50%);
+					max-width:220px;
 					&.tpgt {
 						background: $highlight;
 						padding: 5px;
@@ -245,6 +246,9 @@ PAGE CONTAINERS
 					&.codepen, &.github {
 						max-width: 130px;
 						opacity:0.8;
+					}
+					&.ft4 {
+						max-width: 120px;
 					}
 				}
 
@@ -258,12 +262,13 @@ PAGE CONTAINERS
 			a {
 				display: block;
 				position: relative;
-
+				transition: all 0.2s ease;
 				img {
 					filter: saturate(0);
 					transition: all 0.2s ease;
 				}
 				&:hover {
+					background: rgba(0,0,0,0.04);
 					img {
 						filter: saturate(0.8);
 						transform: translate(-50%, -50%) scale(1.125);

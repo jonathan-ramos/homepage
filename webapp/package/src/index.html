@@ -59,12 +59,12 @@
                     <span>View my CV</span>
                 </div>
             </a>
-            <a href="#" class="cta__link cta__link--linkedin">
+            <a href="https://uk.linkedin.com/in/jonathanramosweb" target="_blank" class="cta__link cta__link--linkedin">
                 <div class="wrapper">
                     <span>View my LinkedIn profile</span>
                 </div>
             </a>
-            <a href="#" class="cta__link cta__link--projects">
+            <a href="#projects" class="cta__link cta__link--projects scroll">
                 <div class="wrapper">
                     <span>View projects I have been involved with</span>
                 </div>
@@ -110,19 +110,19 @@
                         </a>
                     </li>
                     <li class="projects__list__item">
-                        <a href="http://www.rambertschool.org.uk" target="_blank">
-                            <div class="projects__list__item__image">
-                                <img src="./images/thumb-rambert.svg" alt="">
-                            </div>
-                            <span class="projects__list__item__description">Rambert School</span>
-                        </a>
-                    </li>
-                    <li class="projects__list__item">
                         <a href="https://thepayrollgivingteam.co.uk/" target="_blank">
                             <div class="projects__list__item__image">
                                 <img src="./images/thumb-tpgt.svg" class="tpgt" alt="">
                             </div>
                             <span class="projects__list__item__description">The Payroll Giving Team</span>
+                        </a>
+                    </li>
+                    <li class="projects__list__item">
+                        <a href="http://feedingthe400.tumblr.com/" target="_blank">
+                            <div class="projects__list__item__image">
+                                <img src="./images/thumb-feedingthe400.svg" alt="" class="ft4">
+                            </div>
+                            <span class="projects__list__item__description">Feedingthe400</span>
                         </a>
                     </li>
                     <li class="projects__list__item">
@@ -318,7 +318,7 @@
                     // If the anchor exists
                     if (dataTarget) {
                         // Scroll to the anchor
-                        smoothScroll(dataTarget, dataSpeed || 450);
+                        smoothScroll(dataTarget, dataSpeed || 550);
                     }
 
                 }, false);
