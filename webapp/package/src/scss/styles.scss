@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Hind:400,500,600,700');
+
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -10,10 +12,8 @@ $wrapper-width: 1280px;
 $media-desktop: 1280px;
 $media-tablet: 1024px;
 $media-mobile: 680px;
-$main-font-family :  "Gotham A", "Gotham B", sans-serif;
-$alt-font-family : Optima, 'URWClassico-Regular', Helvetica, arial, sans-serif;
-
-
+$main-font-family : Hind, Helvetica, sans-serif;
+$alt-font-family : Hind, Helvetica, sans-serif;
 
 @mixin clearfix {
     &:before, &:after {

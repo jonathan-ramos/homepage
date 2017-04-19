@@ -28,7 +28,7 @@
     	float: left;
     	padding: 0;
     	margin: 0;
-		font-weight: bold;
+		font-weight: 600;
 		color: $black;
         @media screen and (max-width: $media-mobile) {
             display: block;
@@ -82,7 +82,7 @@
                 display: none;
             }
             a {
-                font-weight: bold;
+                font-weight: 600;
                 padding: 0;
                 margin: 0;
                 @media screen and (max-width: $media-mobile) {
