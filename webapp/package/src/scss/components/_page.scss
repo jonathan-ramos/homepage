@@ -57,13 +57,10 @@ PAGE CONTAINERS
 	background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url(../images/background.jpg);
     background-attachment: fixed;
     background-size: cover;
-    background-position: top center;
-	min-height:100vh;
+    background-position: center;
+
 	@media screen and (max-width:$media-tablet){
-		min-height: auto;
-	}
-	@media screen and (max-width:$media-mobile){
-		min-height: auto;
+		background-attachment: scroll;
 	}
 	&__intro {
 		padding: 20vh 0 28vh;
@@ -109,6 +106,7 @@ PAGE CONTAINERS
 			color: white;
 			letter-spacing:0.2rem;
 			text-shadow: 5px 5px 0px rgba(0,0,0,0.4);
+			position: relative;
 			@media screen and (max-width:$media-tablet-portrait) {
 				letter-spacing:normal;
 				font-size: 4.0rem;
@@ -120,18 +118,27 @@ PAGE CONTAINERS
 			a {
 				display: block;
 				transition: all 0.2s ease-in;
-				svg {
-					float: right;
-					fill: white;
-					transform: scale(0.9);
-					transition: transform 0.2s ease;
-					@media screen and (max-width:$media-mobile) {
-						display:none
+				padding-right: 40px;
+				@media screen and (max-width: $media-mobile) {
+					padding-right: 0;
+				}
+				&:after {
+					content: url(../images/ico-caret-down.svg);
+					display: block;
+					width: 35px;
+					height: 38px;
+					position: absolute;
+					top: 50%;
+					right: 0;
+					transform: translateY(-50%);
+					transition: all 0.2s ease;
+					@media screen and (max-width: $media-mobile) {
+						display: none;
 					}
 				}
 				&:hover {
-					svg {
-						transform: scale(1.1) translateY(5px);
+					&:after {
+						transform: scale(1.1) translateY(-35%) scale(1.1);
 					}
 				}
 			}

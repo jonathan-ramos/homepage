@@ -241,14 +241,10 @@ PAGE CONTAINERS
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url(../images/background.jpg);
   background-attachment: fixed;
   background-size: cover;
-  background-position: top center;
-  min-height: 100vh; }
+  background-position: center; }
   @media screen and (max-width: 1024px) {
     .banner {
-      min-height: auto; } }
-  @media screen and (max-width: 680px) {
-    .banner {
-      min-height: auto; } }
+      background-attachment: scroll; } }
   .banner__intro {
     padding: 20vh 0 28vh;
     position: relative;
@@ -289,7 +285,8 @@ PAGE CONTAINERS
     .banner__cta h2 {
       color: white;
       letter-spacing: 0.2rem;
-      text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.4); }
+      text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.4);
+      position: relative; }
       @media screen and (max-width: 768px) {
         .banner__cta h2 {
           letter-spacing: normal;
@@ -300,17 +297,26 @@ PAGE CONTAINERS
           font-size: 3rem; } }
       .banner__cta h2 a {
         display: block;
-        transition: all 0.2s ease-in; }
-        .banner__cta h2 a svg {
-          float: right;
-          fill: white;
-          transform: scale(0.9);
-          transition: transform 0.2s ease; }
+        transition: all 0.2s ease-in;
+        padding-right: 40px; }
+        @media screen and (max-width: 680px) {
+          .banner__cta h2 a {
+            padding-right: 0; } }
+        .banner__cta h2 a:after {
+          content: url(../images/ico-caret-down.svg);
+          display: block;
+          width: 35px;
+          height: 38px;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          transition: all 0.2s ease; }
           @media screen and (max-width: 680px) {
-            .banner__cta h2 a svg {
+            .banner__cta h2 a:after {
               display: none; } }
-        .banner__cta h2 a:hover svg {
-          transform: scale(1.1) translateY(5px); }
+        .banner__cta h2 a:hover:after {
+          transform: scale(1.1) translateY(-35%) scale(1.1); }
 
 .cta {
   padding: 0;
