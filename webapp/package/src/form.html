@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form id="my_form" onsubmit="submitForm(); return false;">
+        <p><input type="text" id="n" placeholder="Name" required></p>
+        <p><input type="email" id="e" placeholder="Email address" required value="test@gmail.com"></p>
+        <p><input type="text" id="m" placeholder="Write your message here"></p>
+        <p><input type="submit" id="mybtn" value="send"><br/><span id="status">Test message</span></p>
+    </form>
+    <script>
+        function _(id) { return document.getElementById(id); }
+        function submitForm() {
+            _("mybtn").disabled = true;
+            _("status").innerHTML = 'please wait ...';
+            var formdata = new FormData();
+            formdata.append("n", _("n").value );
+            formdata.append("e", _("e").value );
+            formdata.append("m", _("m").value );
+
+            var ajax = new XMLHttpRequest();
+            ajax.open( "POST", "example_parser.php" );
+            ajax.onreadystatechange = function() {
+                if(ajax.readyState == 4 && ajax.status == 200) {
+                    if(ajax.responseText == "success") {
+                        _("my_form").innerHTML = '<h2>Thanks</h2>';
+                    } else {
+                        _("status").innderHTML = ajax.responseText;
+                        _("mybtn").disabled = false;
+                    }
+                }
+            }
+            ajax.send( formdata );
+        }
+    </script>
+</body>
+</html>

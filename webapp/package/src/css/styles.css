@@ -724,6 +724,13 @@ PAGE CONTAINERS
       .contact__heading {
         font-size: 2.5rem;
         line-height: 1.2; } }
+  .contact__form {
+    clear: both; }
+    .contact__form:before, .contact__form:after {
+      content: " ";
+      display: table; }
+    .contact__form:after {
+      clear: both; }
   .contact__field {
     width: calc(99.9% * 1/2 - (44px - 44px * 1/2));
     margin-top: 30px; }
@@ -789,7 +796,7 @@ PAGE CONTAINERS
   .contact__submit {
     width: calc(99.9% * 1/2 - (44px - 44px * 1/2));
     position: relative;
-    left: calc(99.9% * 0.5 - (44px - 44px * 0.5) + 44px);
+    left: calc(99.9% * 0 - (44px - 44px * 0) + 44px);
     background-color: #303c42;
     border: none;
     color: #FFF;
@@ -798,7 +805,8 @@ PAGE CONTAINERS
     font-size: 2.2rem;
     cursor: pointer;
     transition: all .3s ease;
-    text-align: center; }
+    text-align: center;
+    width: 100%; }
   .contact__submit:nth-child(1n){
   float: left;
   margin-right: 44px;
@@ -828,6 +836,23 @@ PAGE CONTAINERS
     clear: both; } }
     .contact__submit:hover {
       background-color: #1b2124; }
+    .contact__submit:disabled {
+      cursor: default;
+      background: #d1d9dd; }
+      .contact__submit:disabled:hover {
+        background: #d1d9dd; }
+  .contact__message {
+    padding-top: 20px;
+    opacity: 0;
+    transition: all 0.5s ease; }
+    .contact__message.active {
+      opacity: 1; }
+    @media screen and (max-width: 1024px) {
+      .contact__message {
+        padding-top: 10px; } }
+    @media screen and (max-width: 680px) {
+      .contact__message {
+        padding-top: 0; } }
 
 /*******************************************************************************
 HEADER

@@ -357,6 +357,9 @@ PAGE CONTAINERS
 			line-height: 1.2;
 		}
 	}
+	&__form {
+		@include clearfix;
+	}
 	&__field {
 		lost-column: 1/2;
 		margin-top:30px;
@@ -391,6 +394,28 @@ PAGE CONTAINERS
 		}
 	}
 	&__submit {
-		@include btn($white,$highlight,$highlight-2,1/2);
+		@include btn($white,$highlight,$highlight-2,0);
+		width: 100%;
+		&:disabled {
+			cursor: default;
+			background: lighten($highlight,62%);
+			&:hover {
+				background: lighten($highlight,62%);
+			}
+		}
+	}
+	&__message {
+		padding-top: 20px;
+		opacity: 0;
+		transition: all 0.5s ease;
+		&.active {
+			opacity: 1;
+		}
+		@media screen and (max-width: $media-tablet) {
+			padding-top: 10px;
+		}
+		@media screen and (max-width: $media-mobile) {
+			padding-top: 0;
+		}
 	}
 }

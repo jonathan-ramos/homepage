@@ -183,24 +183,32 @@
                 </div>
                 <div class="contact__content">
                     <h3 class="contact__heading">If you'd like to get in touch, just drop me a line. I'd be happy to get back to you.</h3>
-                    <form class="contact__form" role="form" id="contactForm" method="post" action="php/mailer.php">
-                        <div class="contact__field">
-                            <label for="name">Name</label>
-                            <input type="text" placeholder="" name="name" required="">
+                    <form class="contact__form" role="form" id="contactForm" onsubmit="submitForm(); return false;">
+                        <div class="contact__main">
+                            <div class="contact__field">
+                                <label for="name">Name</label>
+                                <input type="text" placeholder="" name="name" id="n" required="">
+                            </div>
+                            <div class="contact__field">
+                                <label for="email">Email Address</label>
+                                <input type="email" placeholder="" name="email" id="e" required="">
+                            </div>
                         </div>
-                        <div class="contact__field">
-                            <label for="email">Email Address</label>
-                            <input type="email" placeholder="" name="email" required="">
+                        <div class="contact__main">
+                            <div class="contact__field contact__field--full">
+                                <label for="message">Message</label>
+                                <textarea rows="8" placeholder="" name="message" id="m" required=""></textarea>
+                            </div>
                         </div>
-                        <div class="contact__field contact__field--full">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="8" placeholder="" name="message" required=""></textarea>
-                        </div>
-                        <div class="contact__field contact__field--full">
-                            <button class="contact__btn contact__submit" type="submit" id="form-submit">Send</button>
+                        <div class="contact__main">
+                            <div class="contact__field">
+                                <div id="form-messages" class="contact__message alert"></div>
+                            </div>
+                            <div class="contact__field">
+                                <input class="contact__btn contact__submit" type="submit" id="form-submit" value="Send"></button>
+                            </div>
                         </div>
                     </form>
-                    <div id="form-messages" class="contact__message alert"></div>
                 </div>
             </div>
         </section>
@@ -231,6 +239,9 @@
 
     <script src="../js/script.js"></script>
     <script>
+        /**********************************************************************/
+        /* Navigation menu                                               */
+        /**********************************************************************/
         const navMenu = document.querySelector('.nav__menu');
         const navItems = document.querySelector('.nav ul');
 
@@ -246,8 +257,39 @@
         })
         window.addEventListener('resize', checkSize);
 
+        /**********************************************************************/
+        /* Contact Form                                                       */
+        /**********************************************************************/
+        function _(id) { return document.getElementById(id); }
+        function submitForm() {
+            _("form-submit").disabled = true;
+            _("form-messages").innerHTML = '....';
+            var formdata = new FormData();
+            formdata.append("n", _("n").value );
+            formdata.append("e", _("e").value );
+            formdata.append("m", _("m").value );
 
-        /* Smooth Scroll */
+            var ajax = new XMLHttpRequest();
+            ajax.open( "POST", "example_parser.php" );
+            ajax.onreadystatechange = function() {
+                if(ajax.readyState == 4 && ajax.status == 200) {
+                    if(ajax.responseText == "success") {
+                        _("form-messages").classList.add('active');
+                        _("form-messages").innerHTML = "Thanks. I'll get back to you soon.";
+
+                    } else {
+                        _("form-messages").innderHTML = ajax.responseText;
+                        _("form-submit").disabled = false;
+                    }
+                }
+            }
+            ajax.send( formdata );
+        }
+
+        /**********************************************************************/
+        /* Smooth Scroll                                                      */
+        /**********************************************************************/
+
         (function() {
 
          'use strict';
