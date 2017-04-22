@@ -7,14 +7,13 @@ var gulpIf = require('gulp-if');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var lost = require('lost');
-// var lost = require('lost');
-
-
+var cssnano = require('cssnano');
 
 gulp.task('sass', function() {
     var processors = [
             lost,
-            autoprefixer({browsers:'last 2 version'})
+            autoprefixer({browsers:'last 2 version'}),
+            cssnano()
     ];
     return gulp.src('package/src/scss/**/*.scss')
         .pipe(sass())
@@ -22,8 +21,6 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('package/src/css'))
         .pipe(browserSync.reload({ stream: true }))
 });
-
-
 
 gulp.task('watch', ['browserSync', 'sass'], function(){
     gulp.watch('package/src/scss/**/*.scss', ['sass']);
